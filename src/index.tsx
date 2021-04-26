@@ -1,30 +1,27 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import AppLoading from "expo-app-loading";
+import {
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  useFonts,
+} from "@expo-google-fonts/roboto";
+import Routes from "./routes";
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    roboto_400: Roboto_400Regular,
+    roboto_500: Roboto_500Medium,
+    roboto_700: Roboto_700Bold,
+  });
+
+  if (!fontsLoaded) <AppLoading />;
+
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("./assets/adaptive-icon.png")}
-        style={styles.logo}
-      />
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <Routes />
+      <StatusBar style="light" />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  logo: {
-    width: 120,
-    height: 120,
-    margin: 10,
-  },
-});
