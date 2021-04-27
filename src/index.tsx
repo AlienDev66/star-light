@@ -16,7 +16,9 @@ export default function App() {
     roboto_700: Roboto_700Bold,
   });
 
-  if (!fontsLoaded) <AppLoading />;
+  if (!fontsLoaded) {
+    <AppLoading />;
+  }
 
   return (
     <>

@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactNode } from "react";
 
-import { Text } from "react-native";
-
-import { Container } from "./styles";
+import StarCard from "../../components/starCard";
+import Starfield from "../../components/Starfield";
+import { Heading, Wrapper } from "../starPeople/styles";
 
 interface PlanetsProps {
   children: ReactNode;
@@ -11,10 +11,12 @@ interface PlanetsProps {
 
 function StarPlanets({ children }: PlanetsProps) {
   return (
-    <Container>
-      <Text>planets</Text>
+    <Wrapper>
+      <Starfield />
+      {/* <Heading>Coming soon...</Heading> */}
+      <StarCard type="planets" />
       {children}
-    </Container>
+    </Wrapper>
   );
 }
 
